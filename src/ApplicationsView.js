@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import { Home } from "./Home";
 import { FlowerProvider } from "./components/flowers/FlowerProvider";
 import { FlowerList } from "./components/flowers/FlowerList";
+import { NurseryProvider } from "./components/nurseries/NurseryProvider";
+import { NurseryList } from "./components/nurseries/NurseryList";
 
 export const ApplicationViews = () => {
   return (
@@ -11,11 +13,24 @@ export const ApplicationViews = () => {
         <Home />
       </Route>
 
-      <FlowerProvider>
-        <Route path="/flowers">
-          <FlowerList />
-        </Route>
-      </FlowerProvider>
+      <Route exact path="/nurseries">
+        <NurseryProvider>
+          <NurseryList />
+        </NurseryProvider>
+      </Route>
+
+      <Route exact path="/distributors">
+        <></>
+      </Route>
+
+      <Route exact path="/retailers">
+        <></>
+      </Route>
+      <Route exact path="/flowers">
+       <FlowerProvider>
+	       <FlowerList />
+       </FlowerProvider>
+      </Route>
     </>
   );
 };
